@@ -1,0 +1,399 @@
+
+
+.willkommen img {
+	float: left;
+}
+
+.field-name-field-gallerie-beschreibung {
+	padding-top: 5px;
+}
+
+.field-name-field-gallerie-datum {
+        padding-top: 5px;
+}
+
+.bildergalerien-tabelle table {
+	border-collapse: separate;
+	border-spacing: 0px 10px;
+	border-bottom: 3px double #CCCCCC;
+	width: 100%;
+}
+
+.bildergalerien-tabelle th {
+	border-bottom: 3px solid #CCCCCC
+}
+	
+
+.bildergalerie-view img {
+	display: block;
+	padding: 5px;
+	margin-bottom: 10px;
+	background: #555555;
+	opacity: 0.9;
+}
+
+.bildergalerie-view-text {
+	padding-left: 5px;
+	text-align: left;
+	width: 100%;
+}
+
+.bildergalerie-view-created {
+	text-align: right;
+}
+
+.kalender-view table {
+	border-collapse: separate;
+	border-spacing: 0px 10px;
+	margin: 0px 10px 10px 0;
+	width: 100%;
+	border-bottom: 3px double #CCCCCC;
+}
+
+.bildergalerie-mini-startseite {
+	padding: 0 5px 5px 0;
+}
+
+.view-feature-three img {
+	margin-bottom: 0px !important;
+}
+
+
+.termin th {
+	border: none;
+}
+
+.termin-datum {
+	background: #DDDDDD;
+	color: #000000;
+	padding: 5px;
+	font-weight: bold;
+	font-size: 0.9em;
+	border: 2px solid #2998B4;
+}
+
+.termin-datum-node {
+        background: #DDDDDD;
+        color: #000000;
+        padding: 5px;
+	border: 2px solid #2998B4;
+}
+
+.termin-beschreibung {
+	padding: 5px;
+}
+
+.termin-titel h2 a {
+    color: #111111;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.termin-titel h2 a:hover {
+	color: #2998B4;
+	text-decoration: none;
+}
+
+.termin-weiterlesen {
+	float: right;
+	vertical-align: bottom;
+}
+
+.termine-node-pic img {
+	border: 3px solid #555555;
+}
+
+.termin-node {
+	padding: 10px;
+}
+
+.termin-node table {
+	border: none;
+	border-collapse: separate;
+}
+
+.trainingszeiten_first th {
+	background: #EEEEEE;
+	border-bottom: none;
+}
+
+.trainingszeiten table {
+	width: 100%;
+}
+
+.trainingszeiten tr {
+	border-bottom: 1px solid #DDDDDD;
+	padding: 3px;
+}
+
+.startseite_block img {
+	padding: 5px;
+}
+
+.flex-caption {
+	font-weight: bold;
+}
+
+.ergebnisse-tabelle table {
+	width: 100%;
+}
+
+.ergebnisse-tabelle td, .ergebnisse-tabelle th {
+        padding-left: 5px;
+}
+
+.ergebnisse-text p {
+	padding-top: 5px;
+}
+
+.ergebnisse-tabelle {
+	padding-bottom: 5px;
+}
+
+.ergebnisse-tabelle th {
+	font-weight: bold;
+}
+
+.ergebnisse-titel table {
+	padding-top: 5px;
+	width: 100%;
+}
+
+.ergebnisse-titel h2 {
+	padding-top: 10px;
+}
+
+.ergebnisse-titel h2 a {
+    color: #111111;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.ergebnisse-titel h2 a:hover {
+        color: #2998B4;
+        text-decoration: none;
+}
+
+
+.ergebniszeile {
+	border-bottom: 3px double #CCCCCC;
+}
+
+tbody {
+	border-top: 0;
+}
+
+#page-title {
+	border-bottom: 3px double #DDDDDD;
+	padding: 7px 0 20px 0 !important;
+}
+
+.das-sind-wir ol ,ul {
+	list-style: outside;
+}
+
+.das-sind-wir li {
+	padding-left: 5px;
+	margin-left: 15px;
+}
+
+
+.abteilungsvorstand table {
+	width: 100%;
+	border: 0;
+}
+
+.abteilungsvorstand-bild {
+	width: 150px;
+	height: 200px;
+	margin-bottom: 0px;
+}
+
+.abteilungsvorstand-name {
+	font-weight: bold;
+	height: 20px;
+}
+
+.abteilungsvorstand-name h2 {
+	padding-bottom: 0px;
+}
+
+.abteilungsvorstand-text {
+	padding: 0 0 10px 5px;
+	vertical-align: top;
+}
+
+.abteilungsvorstand-aufgabe {
+        height: 100%;
+	font-weight: bold;
+}
+
+.nav-menu-wrapper {
+	border-top: 0 !important;
+}
+
+.pager {
+	padding-top: 5px !important;
+}
+
+.item-list .pager li {
+	padding: 0px;
+}
+
+.pager-current {
+	background: #2998B4;
+	border: 0 none;
+	padding: 6px !important;
+}
+
+.pager-current:hover {
+	background: #2998B4 !important;
+	padding: 6px;
+}
+
+
+.pager-item a:hover {
+	background: #2998B4 !important;
+	padding: 6px;	
+	float: middle;
+}
+
+.pager-item a {
+	background: #FFFFFF;
+	padding: 6px;
+}
+
+.pager-next, .pager-previous, .pager-first, .pager-last {
+	border-bottom: 0px !important;
+}
+
+.twitter {
+	display: none !important;
+}
+
+
+.footer-wrapper-inner {
+	display:none;
+}
+
+#search-form {
+	padding-top: 25px;
+}
+
+.article-header {
+	padding-top: 10px;
+	padding-bottom: 0px !important;
+}
+
+.node-teaser h2 a:hover {
+	color: #2998B4 !important;
+}
+
+.item-list ul {	
+	margin: 0px;
+}
+
+.article-text ul {
+	margin: 0 0 5px 15px;
+}
+
+.field-name-field-tags {
+	float: left;
+}
+
+.addtoany_list {
+	float: left;
+}
+
+.anstehende_laeufe {
+	border-bottom: 1px solid;
+}
+
+.laufblock_startseite {
+	background: url("../images/style3/background.png") repeat scroll 0 0 transparent;
+	border-top: 5px #555555 solid;
+	border-left: 5px #555555 solid;
+	border-bottom: 5px #555555 solid;
+	border-right: 5px #555555 solid;
+	margin-right: 0px;;
+}
+
+#block-poll-recent {
+	background: url("../images/style3/background.png") repeat scroll 0 0 transparent;
+	border-top: 5px #555555 solid;
+	border-left: 5px #555555 solid;
+	border-bottom: 5px #555555 solid;
+	border-right: 5px #555555 solid;
+	margin-right: 0px;
+	margin-bottom: 5px;
+}
+
+#block-poll-recent li.first, #block-poll-recent .total {
+	display: none;
+}
+
+#block-views-ergebnisse-block-1 {
+	padding-bottom: 5px;
+}
+
+#views_slideshow_controls_text_pause_news-block_1 {
+	display: none;
+}
+
+#views_slideshow_controls_text_next_news-block_1 {
+	padding-left: 30px;
+}
+
+#views_slideshow_controls_text_news-block_1 {
+	padding-top: 7px;
+	padding-left: 66px;
+}
+
+#views_slideshow_cycle_teaser_section_news-block_1 {
+	width: 100% !important;
+}
+
+#views_slideshow_cycle_div_news-block_1_0, #views_slideshow_cycle_div_news-block_1_1, #views_slideshow_cycle_div_news-block_1_2 {
+	width: 100% !important;
+}
+
+.ergebnis_sprechblase {
+	left: -135px;
+    position: relative;
+    top: 210px;
+	z-index: -1;
+}
+
+.banner-ergebnisse {
+	margin-bottom: -114px;
+}
+
+/**
+.view-id-ergebnisse {
+    margin-top: -160px;
+}
+
+.ergebnis_sprechblase_block {
+	background: none !important;
+    border: none !important;
+    color: #666666 !important;
+    padding: 0px !important;
+	position: relative;
+	top: 197px;
+	left: -180px;
+}
+**/
+
+.iframe_halbmarathon {
+	width: 100%;
+	height: 500px;
+	border: none;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+
+/* Umfragen */
+
+.poll .bar .foreground {
+    background-color: #2998B4;
+}

@@ -1,0 +1,168 @@
+<?php
+
+/**
+ * @file
+ * Select Drupal content to create a newsletter.
+ */
+
+/**
+ * Implements hook_menu()
+ */
+function scs_menu() {
+  $items = array();
+
+  $items['admin/config/simplenews/scs'] = array(
+      'title' => 'Simplenews Content Selection',
+      'description' => 'Configure what node types could be used for SCS, ...',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('scs_admin_settings_form'),
+      'access arguments' => array('administer scs'),
+      'file' => 'scs.admin.inc',
+      'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['admin/content/scs_sort_nodes'] = array(
+      'title' => 'Simplenews Content Select Sorter',
+      'description' => 'Sort the nodes like you want them in the newsletter',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('scs_sort_nodes'),
+      'access arguments' => array('scs create newsletters'),
+      'file' => 'scs.pages.inc',
+      'type' => MENU_CALLBACK,
+  );
+
+  $items['admin/content/scs'] = array(
+      'title' => 'Create a newsletter',
+      'description' => 'Configure what node types could be used for SCS, ...',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('scs_choose_nodes'),
+      'access arguments' => array('administer scs'),
+      'file' => 'scs.pages.inc',
+      'type' => MENU_LOCAL_TASK | MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+/**
+ * Implementation of hook_permission().
+ */
+function scs_permission() {
+  return array(
+      'administer scs' => array(
+          'title' => t('Administer Simplenews Content Selection'),
+          'description' => t('Access to configuration of this module'),
+      ),
+      'scs create newsletters' => array(
+          'title' => t('Allow create via Simplenews Content Selection'),
+          'description' => t('Allow create newsletters via Simplenews Content Selection'),
+      ),
+  );
+}
+
+/**
+ * Implements hook_theme().
+ */
+function scs_theme() {
+  return array(
+      'scs_node_output' => array(
+          'variables' => array('node' => NULL, 'view_mode' => NULL),
+          'file' => 'scs.theme.inc',
+      ),
+      'scs_newsletter_output' => array(
+          'variables' => array('nodes' => NULL, 'view_mode' => NULL),
+          'file' => 'scs.theme.inc',
+      ),
+      'scs_sort_nodes' => array(
+          'render element' => 'form',
+          'file' => 'scs.theme.inc',
+      ),
+      'scs_choose_nodes' => array(
+          'render element' => 'form',
+          'file' => 'scs.theme.inc',
+      ),
+      'scs_node_titles' => array(
+          'variables' => array('titles' => array()),
+          'file' => 'scs.theme.inc',
+      ),
+      'scs_nodes_output' => array(
+          'variables' => array('builds' => array()),
+          'file' => 'scs.theme.inc',
+      ),
+  );
+}
+
+/**
+ * Newsletter creator function.
+ * @param string $title
+ * @param array $nids array with nodes ids
+ * @param int $tid term id of a simplenews category
+ * @param int $type content type used for newsletter
+ * @param array $types_order how content types should be ordered in the newsletter 
+ */
+function _scs_create_newsletter($title, $nids, $tid, $types_order, $type=0) {
+  global $language;
+  $types = simplenews_get_content_types();
+
+  // get view mode for the nodes included in the newsletter
+  $view_mode = variable_get('scs_content_view_mode', array('newsletter'));
+
+  //Title
+  if (!$title) {
+    $title = variable_get('scs_default_title', '');
+  }
+
+  // Load node information
+  $nodes = node_load_multiple($nids);
+  // Create the body of the newsletter
+  $body = theme('scs_newsletter_output', array('nodes' => $nodes, 'types_order' => $types_order, 'view_mode' => $view_mode));
+
+  $newsletter = new StdClass();
+  $newsletter->nid = null;
+  $newsletter->vid = null;
+  $newsletter->type = $types[$type];
+  $newsletter->language = 'und'; //$language->language;
+  $newsletter->title = $title;
+  $newsletter->body = array();
+  $newsletter->body['und'][0] = array(
+      'value' => $body,
+      'summary' => $body,
+      'format' => (variable_get('scs_format', 'html') == 'plain') ? 'plain_text' : 'full_html',
+  );
+  $newsletter->field_simplenews_term = array();
+  $newsletter->field_simplenews_term['und'][0] = array('tid' => $tid);
+  $newsletter->status = variable_get('scs_publish_default', 1);
+  $newsletter->promote = 0;
+  $newsletter->comment = 0;
+
+  node_object_prepare($newsletter);
+  $newsletter = node_submit($newsletter);
+
+  node_save($newsletter);
+
+  drupal_goto('node/' . $newsletter->nid);
+}
+
+/**
+ * Implementation of hook_entity_info_alter().
+ */
+function scs_entity_info_alter(&$entity_info) {
+  $entity_info['node']['view modes']['newsletter'] = array(
+      'label' => t('Newsletter'),
+      'custom settings' => TRUE,
+  );
+}
+
+/**
+ * Get nodes view modes.
+ * @return <type>
+ */
+function _scs_get_node_view_modes() {
+  //get view modes
+  $view_modes = array();
+  $info = entity_get_info('node');
+  foreach ($info['view modes'] as $k => $v) {
+    $view_modes[$k] = $v['label'];
+  }
+  return $view_modes;
+}
